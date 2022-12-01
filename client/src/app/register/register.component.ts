@@ -1,38 +1,41 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { UsersService } from '../users.service';
+import { User } from '../user.model';
+
+declare var M: any;
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styles: [`.head {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    color: #2BBBAD;
-  }
-
-  form {
-    text-align: center;
-  }
-
-  button {
-    margin: 0 50px;
-  }
-
-  .card {
-    height: auto;
-    width: 500px;
-    border-radius: 15px;
-    margin: 100px auto;
-    padding: 30px;
-  }
-
-  `]
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  constructor(public usersService: UsersService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.resetForm();
   }
 
+  resetForm(form?: NgForm) {
+    if (form) form.reset();
+    this.usersService.selectedUsers = {
+      _id: '',
+      name: '',
+      username: '',
+      password: '',
+    };
+  }
+
+  onSubmit(form: NgForm) {
+    this.usersService.signUp(form.value).subscribe((res) => {
+      this.resetForm();
+      M.toast({
+        html: 'User Registered',
+        classes: 'rounded',
+        displayLength: 1000,
+      });
+    });
+  }
 }

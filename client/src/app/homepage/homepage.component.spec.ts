@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormCardComponent } from './form-card.component';
+import { HomepageComponent } from './homepage.component';
 
-describe('FormCardComponent', () => {
-  let component: FormCardComponent;
-  let fixture: ComponentFixture<FormCardComponent>;
+describe('HomepageComponent', () => {
+  let component: HomepageComponent;
+  let fixture: ComponentFixture<HomepageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormCardComponent ]
+      declarations: [ HomepageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormCardComponent);
+    fixture = TestBed.createComponent(HomepageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

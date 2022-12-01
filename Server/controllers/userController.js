@@ -31,14 +31,14 @@ router.post("/auth", (req, res) => {
   User.findOne({ username }, (err, doc) => {
     if (err) throw err;
     if (!doc) {
-      return res.json({ success: false });
+      return res.json({ success: false, userExist: false });
     }
     bcrypt.compare(password, doc.password, (err, isMatch) => {
       if (err) throw err;
       if (isMatch) {
-        return res.json({ success: true });
+        return res.json({ success: true, userExist: true });
       } else {
-        return res.json({ success: false});
+        return res.json({ success: false, userExist: true});
       }
     });
   });
