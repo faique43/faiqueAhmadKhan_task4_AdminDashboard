@@ -4,8 +4,7 @@ const Student = mongoose.model("Student", {
   name: { type: String },
   course: { type: String },
   batch: { type: String },
-  dob: { type: Date },
-  semester: { type: Number },
+  semester: { type: String },
   resStatus: { type: String },
 });
 

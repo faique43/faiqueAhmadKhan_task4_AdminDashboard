@@ -35,7 +35,6 @@ router.post("/", (req, res) => {
     name: req.body.name,
     course: req.body.course,
     batch: req.body.batch,
-    dob: req.body.dob,
     semester: req.body.semester,
     resStatus: req.body.resStatus,
   });
@@ -59,7 +58,6 @@ router.put("/:id", (req, res) => {
     name: req.body.name,
     course: req.body.course,
     batch: req.body.batch,
-    dob: req.body.dob,
     semester: req.body.semester,
     resStatus: req.body.resStatus,
   };
