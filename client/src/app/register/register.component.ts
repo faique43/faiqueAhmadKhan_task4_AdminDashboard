@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { UsersService } from '../users.service';
-import { User } from '../user.model';
+import { UsersService } from '../shared/users.service';
+import { User } from '../shared/user.model';
 
 declare var M: any;
 

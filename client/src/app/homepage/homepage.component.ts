@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StudentService } from '../student.service';
-import { Student } from '../student.model';
+import { StudentService } from '../shared/student.service';
+import { Student } from '../shared/student.model';
 
 declare var M: any;
 
