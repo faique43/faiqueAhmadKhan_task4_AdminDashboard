@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { StudentService } from '../shared/student.service';
 import { Student } from '../shared/student.model';
@@ -12,7 +13,9 @@ declare var M: any;
 })
 export class HomepageComponent implements OnInit {
   public students!: Student[];
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService, private router: Router) {
+    if (!localStorage.getItem('user')) this.router.navigateByUrl('login');
+  }
 
   ngOnInit(): void {
     this.getStudents();
@@ -31,5 +34,10 @@ export class HomepageComponent implements OnInit {
         M.toast({ html: 'Record Deleted Successfully', classes: 'rounded' });
       });
     }
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigateByUrl('login');
   }
 }

@@ -1,0 +1,71 @@
+<div class="row card">
+  <h2 class="head">Add New Student</h2>
+  <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)" class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="_id" name="_id" #_id="ngModel" [(ngModel)]="studentService.selectedStudent._id" type="hidden"
+          class="validate">
+        <input id="name" name="name" #name="ngModel" [(ngModel)]="studentService.selectedStudent.name" type="text"
+          class="validate">
+        <label for="name">Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="course" name="course" #course="ngModel" [(ngModel)]="studentService.selectedStudent.course"
+          type="text" class="validate">
+        <label for="course">Course</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <select id="batch" name="batch" #batch="ngModel" [(ngModel)]="studentService.selectedStudent.batch">
+          <option value="" disabled selected>Choose your Batch</option>
+          <option value="2K19">2K19</option>
+          <option value="2K20">2K20</option>
+          <option value="2K21">2K21</option>
+          <option value="2K22">2K22</option>
+        </select>
+        <label>Batch</label>
+      </div>
+      <div class="input-field col s6">
+        <select id="semester" name="semester" #semester="ngModel" [(ngModel)]="studentService.selectedStudent.semester">
+          <option value="" disabled selected>Choose your Current Semester</option>
+          <option value="1st">1st</option>
+          <option value="2nd">2nd</option>
+          <option value="3rd">3rd</option>
+          <option value="4th">4th</option>
+          <option value="5th">5th</option>
+          <option value="6th">6th</option>
+          <option value="7th">7th</option>
+          <option value="8th">8th</option>
+        </select>
+        <label for="semester">Current Semester</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <p>
+          <label for="resStatus" style="font-size: 1rem;">Resedential Status</label>
+          <label>
+            <input class="with-gap" id="resStatus" name="resStatus" #resStatus="ngModel"
+              [(ngModel)]="studentService.selectedStudent.resStatus" value="Hostelite" type="radio" checked />
+            <span>Hostelite</span>
+          </label>
+          <label>
+            <input class="with-gap" id="resStatus" name="resStatus" #resStatus="ngModel"
+              [(ngModel)]="studentService.selectedStudent.resStatus" value="Day Scholar" type="radio" />
+            <span>Day Scholar</span>
+          </label>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!studentForm.valid" name="action">Add
+        Student
+      </button>
+      <button class="btn waves-effect waves-light" type="button" name="action" routerLink="/homepage">Homepage
+      </button>
+    </div>
+  </form>
+</div>

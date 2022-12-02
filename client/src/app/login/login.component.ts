@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.usersService.login(form.value).subscribe((res) => {
       if (res.success) {
         this.router.navigateByUrl('homepage');
+        localStorage.setItem('user', form.value.username);
       } else if (!res.success && res.userExist) {
         M.toast({
           html: 'Incorrect Password',

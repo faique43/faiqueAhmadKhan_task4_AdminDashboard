@@ -20,4 +20,17 @@ export class StudentService {
   delete(_id: string) {
     return this.http.delete(this.baseUrl + `/${_id}`);
   }
+
+  add(student: Student) {
+    return this.http.post<Student>(this.baseUrl, student);
+  }
+
+  getStudent(_id: string) {
+    console.log(_id);
+    return this.http.get<Student>(this.baseUrl + `/${_id}`);
+  }
+
+  editStudent(student: Student, _id: string) {
+    return this.http.put<Student>(this.baseUrl + `/${_id}`, student);
+  }
 }
